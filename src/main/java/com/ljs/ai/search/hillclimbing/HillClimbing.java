@@ -33,20 +33,15 @@ public final class HillClimbing<S> {
     }
 
     public S search() {
-        System.out.print("Searching (" + initial.getClass().getSimpleName() + ") ...");
-
         S current = initial;
 
         Optional<S> next = next(current);
 
         while (next.isPresent()) {
-            System.out.print(".");
             current = next.get();
 
             next = next(current);
         }
-
-        System.out.println("| Done.");
 
         return current;
     }
