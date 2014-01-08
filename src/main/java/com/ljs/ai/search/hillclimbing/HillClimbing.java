@@ -99,7 +99,7 @@ public final class HillClimbing<S> {
             return this;
         }
 
-        public Builder<S> heurisitic(final Ordering<S> ordering) {
+        public Builder<S> heuristic(final Ordering<S> ordering) {
             this.heuristic = Heuristics.from(ordering);
             return this;
         }
