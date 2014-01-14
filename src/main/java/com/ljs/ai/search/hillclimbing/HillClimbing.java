@@ -72,7 +72,7 @@ public final class HillClimbing<S> {
 
         private S initial;
 
-        private Validator<S> validator;
+        private Validator<S> validator = Validators.alwaysTrue();
 
         private Heuristic<S> heuristic;
 
