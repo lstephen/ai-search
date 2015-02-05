@@ -22,8 +22,6 @@ public abstract class ActionsFunction<S extends State> implements aima.core.sear
             }
         }
 
-        //System.out.println(String.format("Actions: %d/%d", Iterables.size(singles), actions.size()));
-
         return ImmutableSet.copyOf(actions);
     }
 
