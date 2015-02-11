@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ActionsFunction.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-search</a> &gt; <a href="index.source.html" class="el_package">com.ljs.ai.search</a> &gt; <span class="el_source">ActionsFunction.java</span></div><h1>ActionsFunction.java</h1><pre class="source lang-java linenums">package com.ljs.ai.search;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import java.util.Set;
+
+/**
+ *
+ * @author lstephen
+ */
+<span class="nc" id="L11">public abstract class ActionsFunction&lt;S extends State&gt; implements aima.core.search.framework.ActionsFunction {</span>
+
+    @Override
+    public Set&lt;aima.core.agent.Action&gt; actions(Object state) {
+<span class="nc" id="L15">        Set&lt;aima.core.agent.Action&gt; actions = Sets.newHashSet();</span>
+
+<span class="nc" id="L17">        Iterable&lt;? extends Action&lt;S&gt;&gt; singles = getActions((S) state);</span>
+
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for (Action&lt;S&gt; a : singles) {</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            if (a.isValid((S) state)) {</span>
+<span class="nc" id="L21">                actions.add(a);</span>
+            }
+<span class="nc" id="L23">        }</span>
+
+<span class="nc" id="L25">        return ImmutableSet.copyOf(actions);</span>
+    }
+
+    public abstract Iterable&lt;? extends Action&lt;S&gt;&gt; getActions(S state);
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
