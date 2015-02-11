@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HillClimbing.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-search</a> &gt; <a href="index.source.html" class="el_package">com.ljs.ai.search.hillclimbing</a> &gt; <span class="el_source">HillClimbing.java</span></div><h1>HillClimbing.java</h1><pre class="source lang-java linenums">package com.ljs.ai.search.hillclimbing;
+
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Ordering;
+import com.ljs.ai.search.hillclimbing.action.Action;
+import com.ljs.ai.search.hillclimbing.action.ActionGenerator;
+
+/**
+ *
+ * @author lstephen
+ */
+public final class HillClimbing&lt;S&gt; {
+
+    private final S initial;
+
+    private final Validator&lt;S&gt; validator;
+
+    private final Heuristic&lt;S&gt; heuristic;
+
+    private final ActionGenerator&lt;S&gt; actionGenerator;
+
+<span class="nc" id="L23">    private HillClimbing(Builder&lt;S&gt; builder) {</span>
+<span class="nc" id="L24">        Preconditions.checkNotNull(builder.initial);</span>
+<span class="nc" id="L25">        Preconditions.checkNotNull(builder.validator);</span>
+<span class="nc" id="L26">        Preconditions.checkNotNull(builder.heuristic);</span>
+<span class="nc" id="L27">        Preconditions.checkNotNull(builder.actionGenerator);</span>
+
+<span class="nc" id="L29">        this.initial = builder.initial;</span>
+<span class="nc" id="L30">        this.validator = builder.validator;</span>
+<span class="nc" id="L31">        this.heuristic = builder.heuristic;</span>
+<span class="nc" id="L32">        this.actionGenerator = builder.actionGenerator;</span>
+<span class="nc" id="L33">    }</span>
+
+    public S search() {
+<span class="nc" id="L36">        S current = initial;</span>
+
+<span class="nc" id="L38">        Optional&lt;S&gt; next = next(current);</span>
+
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        while (next.isPresent()) {</span>
+<span class="nc" id="L41">            current = next.get();</span>
+
+<span class="nc" id="L43">            next = next(current);</span>
+        }
+
+<span class="nc" id="L46">        return current;</span>
+    }
+
+    private Optional&lt;S&gt; next(S current) {
+
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        for (Action&lt;S&gt; action : actionGenerator.apply(current)) {</span>
+
+<span class="nc" id="L53">            S next = action.apply(current);</span>
+
+<span class="nc bnc" id="L55" title="All 4 branches missed.">            if (validator.apply(next) &amp;&amp; heuristic.compare(current, next) &lt; 0) {</span>
+<span class="nc" id="L56">                return Optional.of(next);</span>
+            }
+<span class="nc" id="L58">        }</span>
+
+<span class="nc" id="L60">        return Optional.absent();</span>
+    }
+
+    public static &lt;S&gt; Builder&lt;S&gt; builder() {
+<span class="nc" id="L64">        return Builder.create();</span>
+    }
+
+    private static &lt;S&gt; HillClimbing&lt;S&gt; build(Builder&lt;S&gt; builder) {
+<span class="nc" id="L68">        return new HillClimbing&lt;S&gt;(builder);</span>
+    }
+
+    public static final class Builder&lt;S&gt; {
+
+        private S initial;
+
+<span class="nc" id="L75">        private Validator&lt;S&gt; validator = Validators.alwaysTrue();</span>
+
+        private Heuristic&lt;S&gt; heuristic;
+
+        private ActionGenerator&lt;S&gt; actionGenerator;
+
+<span class="nc" id="L81">        private Builder() { }</span>
+
+        public Builder&lt;S&gt; initial(S initial) {
+<span class="nc" id="L84">            this.initial = initial;</span>
+<span class="nc" id="L85">            return this;</span>
+        }
+
+        public Builder&lt;S&gt; validator(Validator&lt;S&gt; validator) {
+<span class="nc" id="L89">            this.validator = validator;</span>
+<span class="nc" id="L90">            return this;</span>
+        }
+
+        public Heuristic&lt;S&gt; getHeuristic() {
+<span class="nc" id="L94">            return heuristic;</span>
+        }
+
+        public Builder&lt;S&gt; heuristic(Heuristic&lt;S&gt; heurisitc) {
+<span class="nc" id="L98">            this.heuristic = heurisitc;</span>
+<span class="nc" id="L99">            return this;</span>
+        }
+
+        public Builder&lt;S&gt; heuristic(final Ordering&lt;S&gt; ordering) {
+<span class="nc" id="L103">            this.heuristic = Heuristics.from(ordering);</span>
+<span class="nc" id="L104">            return this;</span>
+        }
+
+        public Builder&lt;S&gt; actionGenerator(ActionGenerator&lt;S&gt; actionGenerator) {
+<span class="nc" id="L108">            this.actionGenerator = actionGenerator;</span>
+<span class="nc" id="L109">            return this;</span>
+        }
+
+        public HillClimbing&lt;S&gt; build() {
+<span class="nc" id="L113">            return HillClimbing.build(this);</span>
+        }
+
+        public static &lt;S&gt; Builder&lt;S&gt; create() {
+<span class="nc" id="L117">            return new Builder&lt;S&gt;();</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

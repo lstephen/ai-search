@@ -1,25 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-ootp-extract,com.ljs.ootp.extract.html.ootp6.rating,TwoToEight,23,0,0,0,5,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.ootp6.rating,OneToTwenty,16,0,0,0,5,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.ootp6.rating,OneToTen,22,0,0,0,6,0,5,0,5,0
-ootp-extract,com.ljs.ootp.extract.html.loader,InMemoryCachedLoader.new CacheLoader() {...},14,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html.loader,InMemoryCachedLoader,38,0,0,0,12,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.loader,PageLoaders.new Callable() {...},15,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html.loader,DiskCachingLoader.DiskCache,105,0,4,0,36,0,9,0,7,0
-ootp-extract,com.ljs.ootp.extract.html.loader,PageLoaders,9,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html.loader,DiskCachingLoader,29,0,0,0,7,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.loader,JsoupLoader,6,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html.loader,PageLoaderBuilder,37,0,0,0,10,0,6,0,6,0
-ootp-extract,com.ljs.ootp.extract.html.ootp5.rating,ZeroToTen,16,0,0,0,5,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.ootp5.rating,PotentialRating.RatingScale,15,0,0,0,4,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html.ootp5.rating,PotentialRating,95,0,0,0,10,0,7,0,7,0
-ootp-extract,com.ljs.ootp.extract.html,UrlLoadingPage,23,0,0,0,7,0,4,0,4,0
-ootp-extract,com.ljs.ootp.extract.html,Documents.new Callable() {...},59,0,8,0,5,0,6,0,2,0
-ootp-extract,com.ljs.ootp.extract.html,Pages.new Callable() {...},10,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html,Documents,38,0,0,0,13,0,3,0,3,0
-ootp-extract,com.ljs.ootp.extract.html,PageFactory,34,0,0,0,9,0,5,0,5,0
-ootp-extract,com.ljs.ootp.extract.html,UrlLoadingPage.new UrlLoadingPage.Loading() {...},14,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html,Pages,8,0,0,0,2,0,2,0,2,0
-ootp-extract,com.ljs.ootp.extract.html.rating,IntegerScale,14,0,0,0,3,0,3,0,3,0
-ootp-extract,com.ljs.ootp.extract.html.rating,OneToOneHundred,16,0,0,0,6,0,5,0,5,0
-ootp-extract,com.ljs.ootp.extract.html.rating,Rating,123,0,12,0,28,0,13,0,7,0
+ai-search,com.ljs.ai.search.hillclimbing,RepeatedHillClimbing,93,0,2,0,23,0,5,0,4,0
+ai-search,com.ljs.ai.search.hillclimbing,HillClimbing.Builder,42,0,0,0,15,0,9,0,9,0
+ai-search,com.ljs.ai.search.hillclimbing,Validators.PredicateValidator,12,0,0,0,4,0,2,0,2,0
+ai-search,com.ljs.ai.search.hillclimbing,Heuristics,8,0,0,0,2,0,2,0,2,0
+ai-search,com.ljs.ai.search.hillclimbing,Heuristics.OrderingHeuristic,12,0,0,0,4,0,2,0,2,0
+ai-search,com.ljs.ai.search.hillclimbing,HillClimbing,99,0,8,0,24,0,9,0,5,0
+ai-search,com.ljs.ai.search.hillclimbing,Validators,11,0,0,0,4,0,3,0,3,0
+ai-search,com.ljs.ai.search.hillclimbing,RepeatedHillClimbing.new Callable() {...},29,0,0,0,7,0,2,0,2,0
+ai-search,com.ljs.ai.search.hillclimbing.action,SequencedAction,122,0,8,0,24,0,10,0,6,0
