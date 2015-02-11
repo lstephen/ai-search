@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Heuristics.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-search</a> &gt; <a href="index.source.html" class="el_package">com.ljs.ai.search.hillclimbing</a> &gt; <span class="el_source">Heuristics.java</span></div><h1>Heuristics.java</h1><pre class="source lang-java linenums">package com.ljs.ai.search.hillclimbing;
 
+import java.io.Serializable;
+
 import com.google.common.collect.Ordering;
 
 /**
@@ -8,22 +10,24 @@ import com.google.common.collect.Ordering;
  */
 public final class Heuristics {
 
-<span class="nc" id="L11">    private Heuristics() { }</span>
+<span class="nc" id="L13">    private Heuristics() { }</span>
 
     public static &lt;S&gt; Heuristic&lt;S&gt; from(Ordering&lt;S&gt; ordering) {
-<span class="nc" id="L14">        return new OrderingHeuristic&lt;S&gt;(ordering);</span>
+<span class="nc" id="L16">        return new OrderingHeuristic&lt;S&gt;(ordering);</span>
     }
 
-    private static final class OrderingHeuristic&lt;S&gt; implements Heuristic&lt;S&gt; {
+    private static final class OrderingHeuristic&lt;S&gt; implements Heuristic&lt;S&gt;, Serializable {
+
+        private static final long serialVersionUID = 1L;
 
         private final Ordering&lt;S&gt; ordering;
 
-<span class="nc" id="L21">        public OrderingHeuristic(Ordering&lt;S&gt; ordering) {</span>
-<span class="nc" id="L22">            this.ordering = ordering;</span>
-<span class="nc" id="L23">        }</span>
+<span class="nc" id="L25">        public OrderingHeuristic(Ordering&lt;S&gt; ordering) {</span>
+<span class="nc" id="L26">            this.ordering = ordering;</span>
+<span class="nc" id="L27">        }</span>
 
         public int compare(S lhs, S rhs) {
-<span class="nc" id="L26">            return ordering.compare(lhs, rhs);</span>
+<span class="nc" id="L30">            return ordering.compare(lhs, rhs);</span>
         }
     }
 
