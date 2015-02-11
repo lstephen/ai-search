@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2015</copyright>
     <item>
-      <title>File: 14,
-             Errors: 162,
+      <title>File: 9,
+             Errors: 96,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,6 +46,20 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Validators.java">com/ljs/ai/search/hillclimbing/Validators.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.SequencedAction.java">com/ljs/ai/search/hillclimbing/action/SequencedAction.java</a>
                 </td>
                 <td>
@@ -55,12 +69,54 @@ under the License.
                   0
                 </td>
                 <td>
-                  18
+                  19
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.Action.java">com/ljs/ai/search/hillclimbing/action/Action.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Validator.java">com/ljs/ai/search/hillclimbing/Validator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristics.java">com/ljs/ai/search/hillclimbing/Heuristics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
                 </td>
                 <td>
                   0
@@ -102,118 +158,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Validators.java">com/ljs/ai/search/hillclimbing/Validators.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  12
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.Action.java">com/ljs/ai/search/Action.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  8
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.Action.java">com/ljs/ai/search/hillclimbing/action/Action.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristics.java">com/ljs/ai/search/hillclimbing/Heuristics.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  11
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.SequencedAction.java">com/ljs/ai/search/SequencedAction.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  20
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.State.java">com/ljs/ai/search/State.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.ActionsFunction.java">com/ljs/ai/search/ActionsFunction.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  5
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.RepeatedHillClimbing.java">com/ljs/ai/search/hillclimbing/RepeatedHillClimbing.java</a>
                 </td>
                 <td>
@@ -223,21 +167,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  16
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.RepeatedHillClimbing.java">com/ljs/ai/search/RepeatedHillClimbing.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  31
+                  17
                 </td>
               </tr>
                       </tbody>
