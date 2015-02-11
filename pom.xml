@@ -223,7 +223,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.14</version>
         <configuration>
-          <configLocation>https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml</configLocation>
+          <configLocation>https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml</configLocation>
         </configuration>
       </plugin>
 
