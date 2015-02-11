@@ -1,5 +1,7 @@
 package com.ljs.ai.search.hillclimbing;
 
+import java.io.Serializable;
+
 import com.google.common.collect.Ordering;
 
 /**
@@ -14,7 +16,9 @@ public final class Heuristics {
         return new OrderingHeuristic<S>(ordering);
     }
 
-    private static final class OrderingHeuristic<S> implements Heuristic<S> {
+    private static final class OrderingHeuristic<S> implements Heuristic<S>, Serializable {
+
+        private static final long serialVersionUID = 1L;
 
         private final Ordering<S> ordering;
 
