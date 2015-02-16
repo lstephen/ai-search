@@ -48,31 +48,31 @@
   </properties>
 
   <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>15.0</version>
-        </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>15.0</version>
+    </dependency>
 
-        <dependency>
-            <groupId>com.googlecode.combinatoricslib</groupId>
-            <artifactId>combinatoricslib</artifactId>
-            <version>2.0</version>
-        </dependency>
+    <dependency>
+      <groupId>com.googlecode.combinatoricslib</groupId>
+      <artifactId>combinatoricslib</artifactId>
+      <version>2.0</version>
+    </dependency>
 
-        <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-          <scope>test</scope>
-        </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
 
-        <dependency>
-          <groupId>org.easytesting</groupId>
-          <artifactId>fest-assert</artifactId>
-          <version>1.4</version>
-          <scope>test</scope>
-        </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-assert</artifactId>
+      <version>1.4</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -156,26 +156,32 @@
       </plugin>
 
       <plugin>
-          <groupId>org.eluder.coveralls</groupId>
-          <artifactId>coveralls-maven-plugin</artifactId>
-          <version>3.0.1</version>
-          <configuration>
-            <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
-          </configuration>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
+        </configuration>
       </plugin>
 
       <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.2.201409121644</version>
-          <executions>
-              <execution>
-                  <id>prepare-agent</id>
-                  <goals>
-                      <goal>prepare-agent</goal>
-                  </goals>
-              </execution>
-          </executions>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.2.201409121644</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
@@ -231,4 +237,19 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.jdbc.url>jdbc:postgresql://db.sonar.mylonelybear.org/sonar</sonar.jdbc.url>
+        <sonar.jdbc.username>sonar</sonar.jdbc.username>
+        <sonar.jdbc.password>${env.SONAR_JDBC_PASSWORD}</sonar.jdbc.password>
+        <sonar.host.url>http://sonar.mylonelybear.org/</sonar.host.url>
+      </properties>
+    </profile>
+  </profiles>
 </project>
