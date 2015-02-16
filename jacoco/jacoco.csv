@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 ai-search,com.ljs.ai.search.hillclimbing,RepeatedHillClimbing,93,0,2,0,23,0,5,0,4,0
-ai-search,com.ljs.ai.search.hillclimbing,HillClimbing.Builder,42,0,0,0,15,0,9,0,9,0
 ai-search,com.ljs.ai.search.hillclimbing,Validators.PredicateValidator,12,0,0,0,4,0,2,0,2,0
+ai-search,com.ljs.ai.search.hillclimbing,HillClimbing.Builder,42,0,0,0,15,0,9,0,9,0
 ai-search,com.ljs.ai.search.hillclimbing,Heuristics,8,0,0,0,2,0,2,0,2,0
 ai-search,com.ljs.ai.search.hillclimbing,Heuristics.OrderingHeuristic,12,0,0,0,4,0,2,0,2,0
 ai-search,com.ljs.ai.search.hillclimbing,HillClimbing,99,0,8,0,24,0,9,0,5,0
