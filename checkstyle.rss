@@ -97,20 +97,6 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
                   2
                 </td>
               </tr>
@@ -126,6 +112,20 @@ under the License.
                 </td>
                 <td>
                   13
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
               </tr>
                           <tr>
