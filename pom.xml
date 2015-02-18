@@ -248,7 +248,7 @@
         <sonar.jdbc.url>jdbc:postgresql://db.sonar.mylonelybear.org/sonar</sonar.jdbc.url>
         <sonar.jdbc.username>sonar</sonar.jdbc.username>
         <sonar.jdbc.password>${env.SONAR_JDBC_PASSWORD}</sonar.jdbc.password>
-        <sonar.host.url>http://54.186.97.128/</sonar.host.url>
+        <sonar.host.url>http://sonar.mylonelybear.org/</sonar.host.url>
         <sonar.login>${env.SONAR_LOGIN}</sonar.login>
         <sonar.password>${env.SONAR_PASSWORD}</sonar.password>
       </properties>
