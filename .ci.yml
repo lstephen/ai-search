@@ -1,12 +1,10 @@
 image: maven:3-jdk-8
-build:
-  run: mvn -B package
+command:
+  - mvn -B package
   <% if (DOTCI_BRANCH == 'develop') { %>
-  after:
-    analytics:
-      - mvn -B -Dgpg.skip=true clean install
-      - mvn -B sonar:sonar
-      - mvn -B jacoco:report coveralls:report
+  - mvn -B -Dgpg.skip=true clean install
+  - mvn -B sonar:sonar
+  - mvn -B jacoco:report coveralls:report
   <% } %>
 
 links:
