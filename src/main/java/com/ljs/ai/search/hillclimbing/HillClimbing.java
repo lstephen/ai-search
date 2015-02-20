@@ -78,7 +78,8 @@ public final class HillClimbing<S> {
 
         private ActionGenerator<S> actionGenerator;
 
-        private Builder() { }
+        private Builder() {
+        }
 
         public Builder<S> initial(S initial) {
             this.initial = initial;
