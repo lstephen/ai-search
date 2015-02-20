@@ -17,7 +17,7 @@ public final class Validators {
     }
 
     private static <S> Validator<S> from(Predicate<S> predicate) {
-      return (S state) -> predicate.apply(state);
+      return predicate::apply;
     }
 
 }

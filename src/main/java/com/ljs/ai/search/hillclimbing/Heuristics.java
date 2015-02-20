@@ -1,7 +1,5 @@
 package com.ljs.ai.search.hillclimbing;
 
-import java.io.Serializable;
-
 import com.google.common.collect.Ordering;
 
 /**
@@ -14,7 +12,7 @@ public final class Heuristics {
     }
 
     public static <S> Heuristic<S> from(Ordering<S> ordering) {
-      return (S lhs, S rhs) -> ordering.compare(lhs, rhs);
+      return ordering::compare;
     }
 
 }
