@@ -5,6 +5,10 @@ environment:
   - BUILD_NUMBER
   - COVERALLS_REPO_TOKEN
   - GPG_PASSPHRASE
+  - NEXUS_PASSWORD
+
+files:
+  - etc/settings.xml:/root/.m2/settings.xml
 
 targets:
   build: mvn -B verify -Dgpg.skip=true
