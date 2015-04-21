@@ -7,3 +7,8 @@ environment:
 
 targets:
   build: mvn -B package
+
+  analytics:
+    - mvn -B test
+    - mvn -B jacoco:report coveralls:report
+
