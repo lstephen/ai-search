@@ -126,6 +126,7 @@
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.5</version>
         <configuration>
+          <useAgent>false</useAgent>
           <passphrase>${env.GPG_PASSPHRASE}</passphrase>
         </configuration>
         <executions>
