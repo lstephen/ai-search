@@ -4,6 +4,7 @@ environment:
   - JENKINS_URL
   - BUILD_NUMBER
   - COVERALLS_REPO_TOKEN
+  - GPG_PASSPHRASE
 
 targets:
   build: mvn -B verify -Dgpg.skip=true
