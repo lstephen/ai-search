@@ -1,4 +1,7 @@
 image: maven:3-jdk-8
 
+environment:
+  - COVERALLS_REPO_TOKEN
+
 targets:
   build: mvn -B package
