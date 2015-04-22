@@ -6,6 +6,7 @@ environment:
   - BUILD_URL
   - COVERALLS_REPO_TOKEN
   - GPG_PASSPHRASE
+  - GITHUB_OAUTH_TOKEN
   - NEXUS_PASSWORD
   - GIT_BRANCH
   - GIT_COMMIT
@@ -19,6 +20,8 @@ targets:
   analytics:
     - mvn -B test
     - mvn -B jacoco:report coveralls:report
+
+  site: mvn -B clean site
 
   snapshot:
     files:
