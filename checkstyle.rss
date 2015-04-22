@@ -102,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristics.java">com/ljs/ai/search/hillclimbing/Heuristics.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
                 </td>
                 <td>
@@ -130,6 +116,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristics.java">com/ljs/ai/search/hillclimbing/Heuristics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.HillClimbing.java">com/ljs/ai/search/hillclimbing/HillClimbing.java</a>
                 </td>
                 <td>
@@ -139,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  35
+                  34
                 </td>
               </tr>
                           <tr>
@@ -167,7 +167,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  16
+                  17
                 </td>
               </tr>
                       </tbody>
