@@ -1,4 +1,6 @@
 <settings>
+  <localRepository>/var/workspace/.m2/repository</localRepository>
+
   <servers>
     <server>
       <id>ossrh</id>
