@@ -1,25 +1,15 @@
 image: maven:3-jdk-8
 
 environment:
-  - JENKINS_URL
-  - BUILD_NUMBER
-  - BUILD_URL
-  - COVERALLS_REPO_TOKEN
   - GPG_PASSPHRASE
   - GITHUB_OAUTH_TOKEN
   - NEXUS_PASSWORD
-  - GIT_BRANCH
-  - GIT_COMMIT
 
 files:
   - etc/settings.xml:/root/.m2/settings.xml
 
 targets:
   build: mvn -B verify -Dgpg.skip=true
-
-  analytics:
-    - mvn -B test
-    - mvn -B jacoco:report coveralls:report
 
   site: mvn -B clean site
 
