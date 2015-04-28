@@ -39,7 +39,7 @@
     <dependency>
       <groupId>com.googlecode.combinatoricslib</groupId>
       <artifactId>combinatoricslib</artifactId>
-      <version>${lib.combinatorscslib.version}</version>
+      <version>${lib.combinatoricslib.version}</version>
     </dependency>
 
     <dependency>
