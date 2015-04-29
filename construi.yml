@@ -11,7 +11,7 @@ files:
 targets:
   build: mvn -B verify -Dgpg.skip=true
 
-  site: mvn -B clean site
+  site: mvn -B -e clean site
 
   snapshot:
     files:
