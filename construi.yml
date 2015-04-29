@@ -15,7 +15,7 @@ targets:
 
   clean: mvn -B clean
 
-  site: /bin/bash construi/site/run.sh
+  site: mvn -B clean site
 
   snapshot:
     files:
