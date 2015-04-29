@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.github.lstephen</groupId>
     <artifactId>basepom</artifactId>
-    <version>1.5</version>
+    <version>1.6</version>
   </parent>
 
   <artifactId>ai-search</artifactId>
@@ -22,6 +22,9 @@
   </scm>
 
   <properties>
+    <github.repository.name>ai-search</github.repository.name>
+    <github.repository.owner>lstephen</github.repository.owner>
+
     <lib.guava.version>15.0</lib.guava.version>
     <lib.combinatoricslib.version>2.0</lib.combinatoricslib.version>
 
