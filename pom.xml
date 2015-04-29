@@ -18,7 +18,7 @@
   <scm>
     <connection>scm:git:git@github.com:lstpehen/ai-search.git</connection>
     <developerConnection>scm:git:git@github.com:lstephen/ai-search.git</developerConnection>
-    <url>https://github.com/lestephen/ai-search</url>
+    <url>https://github.com/lstephen/ai-search</url>
   </scm>
 
   <properties>
