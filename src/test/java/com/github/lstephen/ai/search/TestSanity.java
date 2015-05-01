@@ -1,4 +1,4 @@
-package com.ljs.ai.search;
+package com.github.lstephen.ai.search;
 
 import org.fest.assertions.Assertions;
 

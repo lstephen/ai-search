@@ -1,4 +1,4 @@
-package com.ljs.ai.search.hillclimbing;
+package com.github.lstephen.ai.search;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;

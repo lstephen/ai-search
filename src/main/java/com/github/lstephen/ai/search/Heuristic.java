@@ -1,4 +1,4 @@
-package com.ljs.ai.search.hillclimbing;
+package com.github.lstephen.ai.search;
 
 import java.util.Comparator;
 
