@@ -46,35 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Validators.java">com/ljs/ai/search/hillclimbing/Validators.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.Action.java">com/ljs/ai/search/hillclimbing/action/Action.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.SequencedAction.java">com/ljs/ai/search/hillclimbing/action/SequencedAction.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.SequencedAction.java">com/github/lstephen/ai/search/action/SequencedAction.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Validator.java">com/ljs/ai/search/hillclimbing/Validator.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.ActionGenerator.java">com/github/lstephen/ai/search/action/ActionGenerator.java</a>
                 </td>
                 <td>
                   0
@@ -102,21 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristic.java">com/ljs/ai/search/hillclimbing/Heuristic.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.Heuristics.java">com/ljs/ai/search/hillclimbing/Heuristics.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Heuristics.java">com/github/lstephen/ai/search/Heuristics.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.HillClimbing.java">com/ljs/ai/search/hillclimbing/HillClimbing.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.HillClimbing.java">com/github/lstephen/ai/search/HillClimbing.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.action.ActionGenerator.java">com/ljs/ai/search/hillclimbing/action/ActionGenerator.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Validator.java">com/github/lstephen/ai/search/Validator.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +116,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.ljs.ai.search.hillclimbing.RepeatedHillClimbing.java">com/ljs/ai/search/hillclimbing/RepeatedHillClimbing.java</a>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Heuristic.java">com/github/lstephen/ai/search/Heuristic.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Validators.java">com/github/lstephen/ai/search/Validators.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.RepeatedHillClimbing.java">com/github/lstephen/ai/search/RepeatedHillClimbing.java</a>
                 </td>
                 <td>
                   0
@@ -168,6 +154,20 @@ under the License.
                 </td>
                 <td>
                   17
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.Action.java">com/github/lstephen/ai/search/action/Action.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
                       </tbody>
