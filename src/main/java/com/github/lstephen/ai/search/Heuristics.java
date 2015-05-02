@@ -11,7 +11,7 @@ public final class Heuristics {
     private Heuristics() {
     }
 
-    public static <S> Heuristic<S> from(Ordering<S> ordering) {
+    public static <S> Heuristic<S> from(Ordering<? super S> ordering) {
       return ordering::compare;
     }
 

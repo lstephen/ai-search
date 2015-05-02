@@ -100,9 +100,8 @@ public final class HillClimbing<S> {
             return this;
         }
 
-        public Builder<S> heuristic(final Ordering<S> ordering) {
-            this.heuristic = Heuristics.from(ordering);
-            return this;
+        public Builder<S> heuristic(final Ordering<? super S> ordering) {
+            return heuristic(Heuristics.from(ordering));
         }
 
         public Builder<S> actionGenerator(ActionGenerator<S> actionGenerator) {

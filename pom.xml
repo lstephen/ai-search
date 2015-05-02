@@ -27,6 +27,7 @@
 
     <lib.assertj-core.version>3.0.0</lib.assertj-core.version>
     <lib.junit.version>4.12</lib.junit.version>
+    <lib.powermock.version>1.6.2</lib.powermock.version>
   </properties>
 
   <dependencies>
