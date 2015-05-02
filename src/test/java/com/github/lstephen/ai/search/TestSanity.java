@@ -1,6 +1,6 @@
 package com.github.lstephen.ai.search;
 
-import org.fest.assertions.Assertions;
+import org.assertj.core.api.Assertions;
 
 import org.junit.Test;
 
