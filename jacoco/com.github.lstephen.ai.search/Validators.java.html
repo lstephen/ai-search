@@ -13,11 +13,11 @@ public final class Validators {
 <span class="nc" id="L13">    }</span>
 
     public static &lt;S&gt; Validator&lt;S&gt; alwaysTrue() {
-<span class="nc" id="L16">        return from(Predicates.&lt;S&gt;alwaysTrue());</span>
+<span class="fc" id="L16">        return from(Predicates.&lt;S&gt;alwaysTrue());</span>
     }
 
     private static &lt;S&gt; Validator&lt;S&gt; from(Predicate&lt;S&gt; predicate) {
-<span class="nc" id="L20">      return predicate::apply;</span>
+<span class="fc" id="L20">      return predicate::apply;</span>
     }
 
 }

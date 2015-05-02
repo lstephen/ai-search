@@ -11,8 +11,8 @@ public final class Heuristics {
 <span class="nc" id="L11">    private Heuristics() {</span>
 <span class="nc" id="L12">    }</span>
 
-    public static &lt;S&gt; Heuristic&lt;S&gt; from(Ordering&lt;S&gt; ordering) {
-<span class="nc" id="L15">      return ordering::compare;</span>
+    public static &lt;S&gt; Heuristic&lt;S&gt; from(Ordering&lt;? super S&gt; ordering) {
+<span class="fc" id="L15">      return ordering::compare;</span>
     }
 
 }

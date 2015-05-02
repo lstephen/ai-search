@@ -1,8 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 ai-search,com.github.lstephen.ai.search.action,SequencedAction,122,0,8,0,24,0,10,0,6,0
-ai-search,com.github.lstephen.ai.search,Validators,12,0,0,0,4,0,3,0,3,0
-ai-search,com.github.lstephen.ai.search,RepeatedHillClimbing.new Callable() {...},29,0,0,0,7,0,2,0,2,0
-ai-search,com.github.lstephen.ai.search,RepeatedHillClimbing,93,0,2,0,23,0,5,0,4,0
-ai-search,com.github.lstephen.ai.search,HillClimbing,99,0,8,0,24,0,9,0,5,0
-ai-search,com.github.lstephen.ai.search,HillClimbing.Builder,42,0,0,0,16,0,9,0,9,0
-ai-search,com.github.lstephen.ai.search,Heuristics,9,0,0,0,3,0,2,0,2,0
+ai-search,com.github.lstephen.ai.search,Validators,3,9,0,0,2,2,1,2,1,2
+ai-search,com.github.lstephen.ai.search,RepeatedHillClimbing.new Callable() {...},4,25,0,0,2,5,0,2,0,2
+ai-search,com.github.lstephen.ai.search,RepeatedHillClimbing,17,76,0,2,6,17,0,5,0,4
+ai-search,com.github.lstephen.ai.search,HillClimbing,0,99,0,8,0,24,0,9,0,5
+ai-search,com.github.lstephen.ai.search,HillClimbing.Builder,0,41,0,0,0,15,0,9,0,9
+ai-search,com.github.lstephen.ai.search,Heuristics,3,6,0,0,2,1,1,1,1,1
