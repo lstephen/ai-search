@@ -1,6 +1,6 @@
 package com.github.lstephen.ai.search;
 
-import java.util.Collections;
+import java.util.stream.Stream;
 
 import com.google.common.collect.Ordering;
 
@@ -16,7 +16,7 @@ public class TestRepeatedHillClimbing {
 
     HillClimbing.Builder<String> builder = HillClimbing.<String>builder()
       .heuristic(Ordering.allEqual())
-      .actionGenerator((s) -> Collections.emptyList());
+      .actionGenerator((s) -> Stream.of());
 
     RepeatedHillClimbing<String> repeated = new RepeatedHillClimbing<>(() -> initial, builder);
 

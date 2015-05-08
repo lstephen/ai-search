@@ -1,10 +1,12 @@
 package com.github.lstephen.ai.search;
 
-import com.google.common.base.Optional;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Ordering;
 import com.github.lstephen.ai.search.action.Action;
 import com.github.lstephen.ai.search.action.ActionGenerator;
+
+import java.util.Optional;
+
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Ordering;
 
 /**
  *
@@ -47,17 +49,12 @@ public final class HillClimbing<S> {
     }
 
     private Optional<S> next(S current) {
-
-        for (Action<S> action : actionGenerator.apply(current)) {
-
-            S next = action.apply(current);
-
-            if (validator.apply(next) && heuristic.compare(current, next) < 0) {
-                return Optional.of(next);
-            }
-        }
-
-        return Optional.absent();
+      return actionGenerator
+        .apply(current)
+        .map((a) -> a.apply(current))
+        .filter(validator)
+        .filter((n) -> heuristic.compare(current, n) < 0)
+        .findFirst();
     }
 
     public static <S> Builder<S> builder() {
@@ -65,14 +62,14 @@ public final class HillClimbing<S> {
     }
 
     private static <S> HillClimbing<S> build(Builder<S> builder) {
-        return new HillClimbing<S>(builder);
+        return new HillClimbing<>(builder);
     }
 
     public static final class Builder<S> {
 
         private S initial;
 
-        private Validator<S> validator = Validators.alwaysTrue();
+        private Validator<S> validator = (s) -> true;
 
         private Heuristic<S> heuristic;
 
@@ -101,7 +98,7 @@ public final class HillClimbing<S> {
         }
 
         public Builder<S> heuristic(final Ordering<? super S> ordering) {
-            return heuristic(Heuristics.from(ordering));
+            return heuristic(ordering::compare);
         }
 
         public Builder<S> actionGenerator(ActionGenerator<S> actionGenerator) {

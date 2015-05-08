@@ -1,11 +1,14 @@
 package com.github.lstephen.ai.search.action;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-import java.util.Arrays;
-import java.util.Set;
+
 import org.paukov.combinatorics.Factory;
 import org.paukov.combinatorics.Generator;
 import org.paukov.combinatorics.ICombinatoricsVector;
@@ -23,18 +26,18 @@ public final class SequencedAction<S> implements Action<S> {
     }
 
     @Override
-    public S apply(S state) {
-        S result = state;
+    public S apply(S initial) {
+      AtomicReference<S> state = new AtomicReference<>(initial);
 
-        for (Action<S> a : actions) {
-            result = a.apply(result);
-        }
+      actions.stream().forEach((a) -> state.getAndUpdate(a::apply));
 
-        return result;
+      return state.get();
     }
 
+    @SafeVarargs
+    @SuppressWarnings("varargs")
     public static <S> SequencedAction<S> create(Action<S>... as) {
-        return new SequencedAction<S>(Arrays.asList(as));
+        return new SequencedAction<>(Arrays.asList(as));
     }
 
     private static <S> SequencedAction<S> create(Iterable<Action<S>> actions) {
