@@ -1,7 +1,6 @@
 package com.github.lstephen.ai.search;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.stream.Stream;
 
 import com.google.common.collect.Ordering;
 
@@ -18,7 +17,7 @@ public class TestHillClimbing {
     String result = HillClimbing.<String>builder()
       .initial(initial)
       .heuristic(Ordering.allEqual())
-      .actionGenerator((s) -> Collections.emptyList())
+      .actionGenerator((s) -> Stream.of())
       .build()
       .search();
 
@@ -30,7 +29,7 @@ public class TestHillClimbing {
     Boolean result = HillClimbing.<Boolean>builder()
       .initial(false)
       .heuristic(Ordering.explicit(false, true))
-      .actionGenerator((s) -> Arrays.asList((b) -> !b))
+      .actionGenerator((s) -> Stream.of((b) -> !b))
       .build()
       .search();
 
@@ -43,7 +42,7 @@ public class TestHillClimbing {
       .initial(false)
       .heuristic(Ordering.explicit(false, true))
       .validator((s) -> !s)
-      .actionGenerator((s) -> Arrays.asList((b) -> !b))
+      .actionGenerator((s) -> Stream.of((b) -> !b))
       .build()
       .search();
 

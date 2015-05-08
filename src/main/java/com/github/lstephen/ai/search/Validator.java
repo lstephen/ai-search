@@ -1,11 +1,11 @@
 package com.github.lstephen.ai.search;
 
-import com.google.common.base.Function;
+import java.util.function.Predicate;
 
 /**
  *
  * @author lstephen
  */
-public interface Validator<S> extends Function<S, Boolean> {
-
+public interface Validator<S> extends Predicate<S> {
 }
+
