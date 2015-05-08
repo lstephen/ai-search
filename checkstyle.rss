@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2015</copyright>
     <item>
-      <title>File: 9,
-             Errors: 81,
+      <title>File: 7,
+             Errors: 75,
              Warnings: 0,
              Infos: 0
       </title>
@@ -74,20 +74,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Heuristics.java">com/github/lstephen/ai/search/Heuristics.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.HillClimbing.java">com/github/lstephen/ai/search/HillClimbing.java</a>
                 </td>
                 <td>
@@ -97,7 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  34
+                  35
                 </td>
               </tr>
                           <tr>
@@ -126,20 +112,6 @@ under the License.
                 </td>
                 <td>
                   1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/lstephen/ai-search/checkstyle.html#com.github.lstephen.ai.search.Validators.java">com/github/lstephen/ai/search/Validators.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
                 </td>
               </tr>
                           <tr>

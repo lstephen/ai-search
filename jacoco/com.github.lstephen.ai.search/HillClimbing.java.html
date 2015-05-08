@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HillClimbing.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-search</a> &gt; <a href="index.source.html" class="el_package">com.github.lstephen.ai.search</a> &gt; <span class="el_source">HillClimbing.java</span></div><h1>HillClimbing.java</h1><pre class="source lang-java linenums">package com.github.lstephen.ai.search;
 
-import com.google.common.base.Optional;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Ordering;
 import com.github.lstephen.ai.search.action.Action;
 import com.github.lstephen.ai.search.action.ActionGenerator;
+
+import java.util.Optional;
+
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Ordering;
 
 /**
  *
@@ -20,101 +22,96 @@ public final class HillClimbing&lt;S&gt; {
 
     private final ActionGenerator&lt;S&gt; actionGenerator;
 
-<span class="fc" id="L23">    private HillClimbing(Builder&lt;S&gt; builder) {</span>
-<span class="fc" id="L24">        Preconditions.checkNotNull(builder.initial);</span>
-<span class="fc" id="L25">        Preconditions.checkNotNull(builder.validator);</span>
-<span class="fc" id="L26">        Preconditions.checkNotNull(builder.heuristic);</span>
-<span class="fc" id="L27">        Preconditions.checkNotNull(builder.actionGenerator);</span>
+<span class="fc" id="L25">    private HillClimbing(Builder&lt;S&gt; builder) {</span>
+<span class="fc" id="L26">        Preconditions.checkNotNull(builder.initial);</span>
+<span class="fc" id="L27">        Preconditions.checkNotNull(builder.validator);</span>
+<span class="fc" id="L28">        Preconditions.checkNotNull(builder.heuristic);</span>
+<span class="fc" id="L29">        Preconditions.checkNotNull(builder.actionGenerator);</span>
 
-<span class="fc" id="L29">        this.initial = builder.initial;</span>
-<span class="fc" id="L30">        this.validator = builder.validator;</span>
-<span class="fc" id="L31">        this.heuristic = builder.heuristic;</span>
-<span class="fc" id="L32">        this.actionGenerator = builder.actionGenerator;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L31">        this.initial = builder.initial;</span>
+<span class="fc" id="L32">        this.validator = builder.validator;</span>
+<span class="fc" id="L33">        this.heuristic = builder.heuristic;</span>
+<span class="fc" id="L34">        this.actionGenerator = builder.actionGenerator;</span>
+<span class="fc" id="L35">    }</span>
 
     public S search() {
-<span class="fc" id="L36">        S current = initial;</span>
+<span class="fc" id="L38">        S current = initial;</span>
 
-<span class="fc" id="L38">        Optional&lt;S&gt; next = next(current);</span>
+<span class="fc" id="L40">        Optional&lt;S&gt; next = next(current);</span>
 
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        while (next.isPresent()) {</span>
-<span class="fc" id="L41">            current = next.get();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        while (next.isPresent()) {</span>
+<span class="fc" id="L43">            current = next.get();</span>
 
-<span class="fc" id="L43">            next = next(current);</span>
+<span class="fc" id="L45">            next = next(current);</span>
         }
 
-<span class="fc" id="L46">        return current;</span>
+<span class="fc" id="L48">        return current;</span>
     }
 
     private Optional&lt;S&gt; next(S current) {
-
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Action&lt;S&gt; action : actionGenerator.apply(current)) {</span>
-
-<span class="fc" id="L53">            S next = action.apply(current);</span>
-
-<span class="fc bfc" id="L55" title="All 4 branches covered.">            if (validator.apply(next) &amp;&amp; heuristic.compare(current, next) &lt; 0) {</span>
-<span class="fc" id="L56">                return Optional.of(next);</span>
-            }
-<span class="fc" id="L58">        }</span>
-
-<span class="fc" id="L60">        return Optional.absent();</span>
+<span class="fc" id="L52">      return actionGenerator</span>
+<span class="fc" id="L53">        .apply(current)</span>
+<span class="fc" id="L54">        .map((a) -&gt; a.apply(current))</span>
+<span class="fc" id="L55">        .filter(validator)</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        .filter((n) -&gt; heuristic.compare(current, n) &lt; 0)</span>
+<span class="fc" id="L57">        .findFirst();</span>
     }
 
     public static &lt;S&gt; Builder&lt;S&gt; builder() {
-<span class="fc" id="L64">        return Builder.create();</span>
+<span class="fc" id="L61">        return Builder.create();</span>
     }
 
     private static &lt;S&gt; HillClimbing&lt;S&gt; build(Builder&lt;S&gt; builder) {
-<span class="fc" id="L68">        return new HillClimbing&lt;S&gt;(builder);</span>
+<span class="fc" id="L65">        return new HillClimbing&lt;&gt;(builder);</span>
     }
 
     public static final class Builder&lt;S&gt; {
 
         private S initial;
 
-<span class="fc" id="L75">        private Validator&lt;S&gt; validator = Validators.alwaysTrue();</span>
+<span class="fc" id="L72">        private Validator&lt;S&gt; validator = (s) -&gt; true;</span>
 
         private Heuristic&lt;S&gt; heuristic;
 
         private ActionGenerator&lt;S&gt; actionGenerator;
 
-<span class="fc" id="L81">        private Builder() {</span>
-<span class="fc" id="L82">        }</span>
+<span class="fc" id="L78">        private Builder() {</span>
+<span class="fc" id="L79">        }</span>
 
         public Builder&lt;S&gt; initial(S initial) {
-<span class="fc" id="L85">            this.initial = initial;</span>
-<span class="fc" id="L86">            return this;</span>
+<span class="fc" id="L82">            this.initial = initial;</span>
+<span class="fc" id="L83">            return this;</span>
         }
 
         public Builder&lt;S&gt; validator(Validator&lt;S&gt; validator) {
-<span class="fc" id="L90">            this.validator = validator;</span>
-<span class="fc" id="L91">            return this;</span>
+<span class="fc" id="L87">            this.validator = validator;</span>
+<span class="fc" id="L88">            return this;</span>
         }
 
         public Heuristic&lt;S&gt; getHeuristic() {
-<span class="fc" id="L95">            return heuristic;</span>
+<span class="fc" id="L92">            return heuristic;</span>
         }
 
         public Builder&lt;S&gt; heuristic(Heuristic&lt;S&gt; heurisitc) {
-<span class="fc" id="L99">            this.heuristic = heurisitc;</span>
-<span class="fc" id="L100">            return this;</span>
+<span class="fc" id="L96">            this.heuristic = heurisitc;</span>
+<span class="fc" id="L97">            return this;</span>
         }
 
         public Builder&lt;S&gt; heuristic(final Ordering&lt;? super S&gt; ordering) {
-<span class="fc" id="L104">            return heuristic(Heuristics.from(ordering));</span>
+<span class="fc" id="L101">            return heuristic(ordering::compare);</span>
         }
 
         public Builder&lt;S&gt; actionGenerator(ActionGenerator&lt;S&gt; actionGenerator) {
-<span class="fc" id="L108">            this.actionGenerator = actionGenerator;</span>
-<span class="fc" id="L109">            return this;</span>
+<span class="fc" id="L105">            this.actionGenerator = actionGenerator;</span>
+<span class="fc" id="L106">            return this;</span>
         }
 
         public HillClimbing&lt;S&gt; build() {
-<span class="fc" id="L113">            return HillClimbing.build(this);</span>
+<span class="fc" id="L110">            return HillClimbing.build(this);</span>
         }
 
         public static &lt;S&gt; Builder&lt;S&gt; create() {
-<span class="fc" id="L117">            return new Builder&lt;S&gt;();</span>
+<span class="fc" id="L114">            return new Builder&lt;S&gt;();</span>
         }
     }
 
