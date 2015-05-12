@@ -6,12 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-
-import org.paukov.combinatorics.Factory;
-import org.paukov.combinatorics.Generator;
-import org.paukov.combinatorics.ICombinatoricsVector;
 
 /**
  *
@@ -40,22 +35,8 @@ public final class SequencedAction<S> implements Action<S> {
         return new SequencedAction<>(Arrays.asList(as));
     }
 
-    private static <S> SequencedAction<S> create(Iterable<Action<S>> actions) {
-        return create(Iterables.get(actions, 0), Iterables.get(actions, 1));
-    }
-
     public static <S> ImmutableSet<SequencedAction<S>> allPairs(Iterable<? extends Action<S>> actions) {
-        ICombinatoricsVector<Action<S>> initial = Factory.createVector(ImmutableSet.copyOf(actions));
-
-        Generator<Action<S>> generator = Factory.createSimpleCombinationGenerator(initial, 2);
-
-        Set<SequencedAction<S>> result = Sets.newHashSet();
-
-        for (ICombinatoricsVector<Action<S>> combination : generator) {
-            result.add(create(combination.getVector()));
-        }
-
-        return ImmutableSet.copyOf(result);
+        return merged(actions, actions);
     }
 
     public static <S> ImmutableSet<SequencedAction<S>> merged(
@@ -72,6 +53,5 @@ public final class SequencedAction<S> implements Action<S> {
 
         return ImmutableSet.copyOf(actions);
     }
-
 
 }

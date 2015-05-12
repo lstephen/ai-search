@@ -23,11 +23,9 @@
 
   <properties>
     <lib.guava.version>15.0</lib.guava.version>
-    <lib.combinatoricslib.version>2.0</lib.combinatoricslib.version>
 
     <lib.assertj-core.version>3.0.0</lib.assertj-core.version>
     <lib.junit.version>4.12</lib.junit.version>
-    <lib.powermock.version>1.6.2</lib.powermock.version>
   </properties>
 
   <dependencies>
@@ -35,12 +33,6 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${lib.guava.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.googlecode.combinatoricslib</groupId>
-      <artifactId>combinatoricslib</artifactId>
-      <version>${lib.combinatoricslib.version}</version>
     </dependency>
 
     <dependency>
