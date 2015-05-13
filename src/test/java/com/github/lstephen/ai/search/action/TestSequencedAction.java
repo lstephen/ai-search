@@ -1,8 +1,9 @@
 package com.github.lstephen.ai.search.action;
 
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -25,24 +26,22 @@ public class TestSequencedAction {
 
   @Test
   public void mergedAddOne() {
-    ImmutableSet<SequencedAction<Integer>> actions =
+    Stream<SequencedAction<Integer>> actions =
       SequencedAction.merged(ImmutableSet.of(addOne), ImmutableSet.of(addOne));
 
-    Assertions.assertThat(actions).hasSize(1);
     Assertions.assertThat(applyAllTo(actions, 1)).hasSize(1).contains(3);
   }
 
   @Test
   public void testAllPairs() {
-    ImmutableSet<SequencedAction<Integer>> allPairs =
+    Stream<SequencedAction<Integer>> allPairs =
       SequencedAction.allPairs(ImmutableSet.of(addOne, addTen));
 
-    Assertions.assertThat(allPairs).hasSize(4);
-    Assertions.assertThat(applyAllTo(allPairs, 1)).contains(3, 12, 21);
+    Assertions.assertThat(applyAllTo(allPairs, 1)).hasSize(4).contains(3, 12, 21);
   }
 
-  private <S> Set<S> applyAllTo(Collection<SequencedAction<S>> as, S state) {
-    return as.stream().map((a) -> a.apply(state)).collect(Collectors.toSet());
+  private <S> List<S> applyAllTo(Stream<SequencedAction<S>> as, S state) {
+    return as.map((a) -> a.apply(state)).collect(Collectors.toList());
   }
 
 }

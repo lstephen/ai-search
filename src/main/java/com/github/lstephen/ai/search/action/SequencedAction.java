@@ -1,8 +1,10 @@
 package com.github.lstephen.ai.search.action;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Stream;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -35,23 +37,22 @@ public final class SequencedAction<S> implements Action<S> {
         return new SequencedAction<>(Arrays.asList(as));
     }
 
-    public static <S> ImmutableSet<SequencedAction<S>> allPairs(Iterable<? extends Action<S>> actions) {
+    public static <S> Stream<SequencedAction<S>> allPairs(Collection<? extends Action<S>> actions) {
         return merged(actions, actions);
     }
 
-    public static <S> ImmutableSet<SequencedAction<S>> merged(
-        Iterable<? extends Action<S>> firsts,
-        Iterable<? extends Action<S>> seconds) {
+    public static <S> Stream<SequencedAction<S>> merged(
+        Collection<? extends Action<S>> firsts,
+        Collection<? extends Action<S>> seconds) {
 
-        Set<SequencedAction<S>> actions = Sets.newHashSet();
+      return merged(firsts.stream(), seconds);
+    }
 
-        for (Action<S> first : firsts) {
-            for (Action<S> second : seconds) {
-                actions.add(SequencedAction.create(first, second));
-            }
-        }
+    public static <S> Stream<SequencedAction<S>> merged(
+        Stream<? extends Action<S>> firsts,
+        Collection<? extends Action<S>> seconds) {
 
-        return ImmutableSet.copyOf(actions);
+      return firsts.flatMap((f) -> seconds.stream().map((s) -> SequencedAction.create(f, s)));
     }
 
 }
