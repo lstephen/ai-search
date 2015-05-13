@@ -6,12 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-
-import org.paukov.combinatorics.Factory;
-import org.paukov.combinatorics.Generator;
-import org.paukov.combinatorics.ICombinatoricsVector;
 
 /**
  *
@@ -21,58 +16,43 @@ public final class SequencedAction&lt;S&gt; implements Action&lt;S&gt; {
 
     private final ImmutableList&lt;Action&lt;S&gt;&gt; actions;
 
-<span class="nc" id="L24">    private SequencedAction(Iterable&lt;Action&lt;S&gt;&gt; actions) {</span>
-<span class="nc" id="L25">        this.actions = ImmutableList.copyOf(actions);</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L19">    private SequencedAction(Iterable&lt;Action&lt;S&gt;&gt; actions) {</span>
+<span class="fc" id="L20">        this.actions = ImmutableList.copyOf(actions);</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     public S apply(S initial) {
-<span class="nc" id="L30">      AtomicReference&lt;S&gt; state = new AtomicReference&lt;&gt;(initial);</span>
+<span class="fc" id="L25">      AtomicReference&lt;S&gt; state = new AtomicReference&lt;&gt;(initial);</span>
 
-<span class="nc" id="L32">      actions.stream().forEach((a) -&gt; state.getAndUpdate(a::apply));</span>
+<span class="fc" id="L27">      actions.stream().forEach((a) -&gt; state.getAndUpdate(a::apply));</span>
 
-<span class="nc" id="L34">      return state.get();</span>
+<span class="fc" id="L29">      return state.get();</span>
     }
 
     @SafeVarargs
     @SuppressWarnings(&quot;varargs&quot;)
     public static &lt;S&gt; SequencedAction&lt;S&gt; create(Action&lt;S&gt;... as) {
-<span class="nc" id="L40">        return new SequencedAction&lt;&gt;(Arrays.asList(as));</span>
-    }
-
-    private static &lt;S&gt; SequencedAction&lt;S&gt; create(Iterable&lt;Action&lt;S&gt;&gt; actions) {
-<span class="nc" id="L44">        return create(Iterables.get(actions, 0), Iterables.get(actions, 1));</span>
+<span class="fc" id="L35">        return new SequencedAction&lt;&gt;(Arrays.asList(as));</span>
     }
 
     public static &lt;S&gt; ImmutableSet&lt;SequencedAction&lt;S&gt;&gt; allPairs(Iterable&lt;? extends Action&lt;S&gt;&gt; actions) {
-<span class="nc" id="L48">        ICombinatoricsVector&lt;Action&lt;S&gt;&gt; initial = Factory.createVector(ImmutableSet.copyOf(actions));</span>
-
-<span class="nc" id="L50">        Generator&lt;Action&lt;S&gt;&gt; generator = Factory.createSimpleCombinationGenerator(initial, 2);</span>
-
-<span class="nc" id="L52">        Set&lt;SequencedAction&lt;S&gt;&gt; result = Sets.newHashSet();</span>
-
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        for (ICombinatoricsVector&lt;Action&lt;S&gt;&gt; combination : generator) {</span>
-<span class="nc" id="L55">            result.add(create(combination.getVector()));</span>
-<span class="nc" id="L56">        }</span>
-
-<span class="nc" id="L58">        return ImmutableSet.copyOf(result);</span>
+<span class="fc" id="L39">        return merged(actions, actions);</span>
     }
 
     public static &lt;S&gt; ImmutableSet&lt;SequencedAction&lt;S&gt;&gt; merged(
         Iterable&lt;? extends Action&lt;S&gt;&gt; firsts,
         Iterable&lt;? extends Action&lt;S&gt;&gt; seconds) {
 
-<span class="nc" id="L65">        Set&lt;SequencedAction&lt;S&gt;&gt; actions = Sets.newHashSet();</span>
+<span class="fc" id="L46">        Set&lt;SequencedAction&lt;S&gt;&gt; actions = Sets.newHashSet();</span>
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        for (Action&lt;S&gt; first : firsts) {</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">            for (Action&lt;S&gt; second : seconds) {</span>
-<span class="nc" id="L69">                actions.add(SequencedAction.create(first, second));</span>
-<span class="nc" id="L70">            }</span>
-<span class="nc" id="L71">        }</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (Action&lt;S&gt; first : firsts) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            for (Action&lt;S&gt; second : seconds) {</span>
+<span class="fc" id="L50">                actions.add(SequencedAction.create(first, second));</span>
+<span class="fc" id="L51">            }</span>
+<span class="fc" id="L52">        }</span>
 
-<span class="nc" id="L73">        return ImmutableSet.copyOf(actions);</span>
+<span class="fc" id="L54">        return ImmutableSet.copyOf(actions);</span>
     }
-
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
