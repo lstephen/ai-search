@@ -1,0 +1,44 @@
+<project>
+  <skin>
+    <groupId>lt.velykis.maven.skins</groupId>
+    <artifactId>reflow-maven-skin</artifactId>
+    <version>1.1.1</version>
+  </skin>
+
+  <custom>
+    <reflowSkin>
+      <brand>
+        <name>ai-search</name>
+        <href>https://github.com/lstephen/ai-search</href>
+      </brand>
+
+      <topNav>Reports|Contribute</topNav>
+
+      <bottomNav maxspan="9">
+        <column>Main</column>
+        <column>Contribute</column>
+        <column>Reports</column>
+      </bottomNav>
+    </reflowSkin>
+  </custom>
+
+  <body>
+    <links>
+      <item name="GitHub project" href="https://github.com/lstephen/ai-search"/>
+    </links>
+
+    <menu name="Main" inherit="top">
+      <item name="Home" href="./" />
+      <item name="GitHub project" href="https://github.com/lstephen/ai-search" />
+    </menu>
+
+    <menu name="Contribute" inherit="bottom">
+      <item name="Issues" href="https://github.com/lstephen/ai-search/issues/" />
+      <item name="Fork on GitHub" href="https://github.com/lstephen/ai-search/" />
+    </menu>
+
+    <menu name="Reports" ref="reports" inherit="bottom"/>
+  </body>
+
+</project>
+
