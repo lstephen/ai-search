@@ -13,7 +13,7 @@
 
   <name>ai-search</name>
   <description>Implementation of basic hill climbing search</description>
-  <url>https://github.com/lstephen/ai-search</url>
+  <url>https://lstephen.github.io/ai-search</url>
 
   <scm>
     <connection>scm:git:git@github.com:lstpehen/ai-search.git</connection>
