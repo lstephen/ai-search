@@ -1,4 +1,7 @@
 <project>
+  <publishDate position="bottom" format="yyyy-MM-dd" />
+  <version position="bottom" />
+
   <skin>
     <groupId>lt.velykis.maven.skins</groupId>
     <artifactId>reflow-maven-skin</artifactId>
@@ -33,8 +36,8 @@
     </menu>
 
     <menu name="Contribute" inherit="bottom">
-      <item name="Issues" href="https://github.com/lstephen/ai-search/issues/" />
-      <item name="Fork on GitHub" href="https://github.com/lstephen/ai-search/" />
+      <item name="Issues" href="https://github.com/lstephen/ai-search/issues" />
+      <item name="Fork on GitHub" href="https://github.com/lstephen/ai-search" />
     </menu>
 
     <menu name="Reports" ref="reports" inherit="bottom"/>
