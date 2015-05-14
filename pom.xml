@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.github.lstephen</groupId>
     <artifactId>basepom</artifactId>
-    <version>1.8</version>
+    <version>1.9</version>
   </parent>
 
   <artifactId>ai-search</artifactId>
@@ -13,12 +13,10 @@
 
   <name>ai-search</name>
   <description>Implementation of basic hill climbing search</description>
-  <url>https://lstephen.github.io/ai-search</url>
 
   <scm>
     <connection>scm:git:git@github.com:lstpehen/ai-search.git</connection>
     <developerConnection>scm:git:git@github.com:lstephen/ai-search.git</developerConnection>
-    <url>https://github.com/lstephen/ai-search</url>
   </scm>
 
   <properties>
