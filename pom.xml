@@ -13,10 +13,12 @@
 
   <name>ai-search</name>
   <description>Implementation of basic hill climbing search</description>
+  <url>${github.site}</url>
 
   <scm>
     <connection>scm:git:git@github.com:lstpehen/ai-search.git</connection>
     <developerConnection>scm:git:git@github.com:lstephen/ai-search.git</developerConnection>
+    <url>${github.url}</url>
   </scm>
 
   <properties>
