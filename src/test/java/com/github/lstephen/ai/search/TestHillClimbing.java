@@ -15,11 +15,10 @@ public class TestHillClimbing {
     String initial = "initial";
 
     String result = HillClimbing.<String>builder()
-      .initial(initial)
       .heuristic(Ordering.allEqual())
       .actionGenerator((s) -> Stream.of())
       .build()
-      .search();
+      .search(initial);
 
     Assertions.assertThat(result).isEqualTo(initial);
   }
@@ -27,11 +26,10 @@ public class TestHillClimbing {
   @Test
   public void optimizingBooleanToTrue() {
     Boolean result = HillClimbing.<Boolean>builder()
-      .initial(false)
       .heuristic(Ordering.explicit(false, true))
       .actionGenerator((s) -> Stream.of((b) -> !b))
       .build()
-      .search();
+      .search(false);
 
     Assertions.assertThat(result).isTrue();
   }
@@ -39,12 +37,11 @@ public class TestHillClimbing {
   @Test
   public void optimizeBooleanWhenTrueInvalid() {
     Boolean result = HillClimbing.<Boolean>builder()
-      .initial(false)
       .heuristic(Ordering.explicit(false, true))
       .validator((s) -> !s)
       .actionGenerator((s) -> Stream.of((b) -> !b))
       .build()
-      .search();
+      .search(false);
 
     Assertions.assertThat(result).isFalse();
   }
