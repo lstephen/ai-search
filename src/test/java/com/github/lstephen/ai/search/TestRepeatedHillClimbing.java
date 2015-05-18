@@ -14,9 +14,10 @@ public class TestRepeatedHillClimbing {
   public void whenNoActionsReturnInitialState() {
     String initial = "initial";
 
-    HillClimbing.Builder<String> builder = HillClimbing.<String>builder()
+    HillClimbing<String> builder = HillClimbing.<String>builder()
       .heuristic(Ordering.allEqual())
-      .actionGenerator((s) -> Stream.of());
+      .actionGenerator((s) -> Stream.of())
+      .build();
 
     RepeatedHillClimbing<String> repeated = new RepeatedHillClimbing<>(() -> initial, builder);
 
