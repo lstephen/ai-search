@@ -20,7 +20,7 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>ai-search - Checkstyle report</title>
-    <link>https://lstephen.github.io/ai-search/ai-search</link>
+    <link>https://lstephen.github.io/ai-search</link>
     <description>ai-search - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2015</copyright>
@@ -30,9 +30,9 @@ under the License.
              Warnings: 0,
              Infos: 0
       </title>
-            <link>https://lstephen.github.io/ai-search/ai-search/checkstyle.html</link>
+            <link>https://lstephen.github.io/ai-search/checkstyle.html</link>
       <description>
-        <p>Click <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="https://lstephen.github.io/ai-search/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.SequencedAction.java">com/github/lstephen/ai/search/action/SequencedAction.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.SequencedAction.java">com/github/lstephen/ai/search/action/SequencedAction.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.ActionGenerator.java">com/github/lstephen/ai/search/action/ActionGenerator.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.ActionGenerator.java">com/github/lstephen/ai/search/action/ActionGenerator.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.HillClimbing.java">com/github/lstephen/ai/search/HillClimbing.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.HillClimbing.java">com/github/lstephen/ai/search/HillClimbing.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.Validator.java">com/github/lstephen/ai/search/Validator.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.Validator.java">com/github/lstephen/ai/search/Validator.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.Heuristic.java">com/github/lstephen/ai/search/Heuristic.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.Heuristic.java">com/github/lstephen/ai/search/Heuristic.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.RepeatedHillClimbing.java">com/github/lstephen/ai/search/RepeatedHillClimbing.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.RepeatedHillClimbing.java">com/github/lstephen/ai/search/RepeatedHillClimbing.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://lstephen.github.io/ai-search/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.Action.java">com/github/lstephen/ai/search/action/Action.java</a>
+                  <a href="https://lstephen.github.io/ai-search/checkstyle.html#com.github.lstephen.ai.search.action.Action.java">com/github/lstephen/ai/search/action/Action.java</a>
                 </td>
                 <td>
                   0
