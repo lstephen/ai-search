@@ -1,80 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RepeatedHillClimbing.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ai-search</a> &gt; <a href="index.source.html" class="el_package">com.github.lstephen.ai.search</a> &gt; <span class="el_source">RepeatedHillClimbing.java</span></div><h1>RepeatedHillClimbing.java</h1><pre class="source lang-java linenums">package com.github.lstephen.ai.search;
 
-import com.google.common.base.Throwables;
-import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListeningExecutorService;
-import com.google.common.util.concurrent.MoreExecutors;
-import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import com.google.common.base.Preconditions;
 
 /**
  *
- * @author lstephen
  */
-public class RepeatedHillClimbing&lt;S&gt; {
+public final class RepeatedHillClimbing&lt;S&gt; {
 
-<span class="fc" id="L21">    private static final Integer REPEATS = 5;</span>
+<span class="fc" id="L15">  private static final Integer REPEATS = 5;</span>
 
-    private Callable&lt;S&gt; initialFactory;
+  private final Supplier&lt;S&gt; initialFactory;
 
-    private HillClimbing.Builder&lt;S&gt; hillClimbing;
+  private final HillClimbing&lt;S&gt; hillClimbing;
 
-<span class="fc" id="L27">    public RepeatedHillClimbing(Callable&lt;S&gt; initialFactory, HillClimbing.Builder&lt;S&gt; hillClimbing) {</span>
-<span class="fc" id="L28">        this.initialFactory = initialFactory;</span>
-<span class="fc" id="L29">        this.hillClimbing = hillClimbing;</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L21">  public RepeatedHillClimbing(Supplier&lt;S&gt; initialFactory, HillClimbing&lt;S&gt; hillClimbing) {</span>
+<span class="fc" id="L22">    Preconditions.checkNotNull(initialFactory);</span>
+<span class="fc" id="L23">    Preconditions.checkNotNull(hillClimbing);</span>
 
-    public S search() {
-        try {
-<span class="fc" id="L34">            System.out.print(&quot;Searching (&quot; + initialFactory.call().getClass().getSimpleName() + &quot;) ...&quot;);</span>
-<span class="nc" id="L35">        } catch (Exception e) {</span>
-<span class="nc" id="L36">            throw Throwables.propagate(e);</span>
-<span class="fc" id="L37">        }</span>
+<span class="fc" id="L25">    this.initialFactory = initialFactory;</span>
+<span class="fc" id="L26">    this.hillClimbing = hillClimbing;</span>
+<span class="fc" id="L27">  }</span>
 
-<span class="fc" id="L39">        ListeningExecutorService executor = MoreExecutors.listeningDecorator(</span>
-<span class="fc" id="L40">            Executors.newFixedThreadPool(REPEATS));</span>
+  public S search() {
+<span class="fc" id="L30">    List&lt;S&gt; initial = Stream</span>
+<span class="fc" id="L31">      .generate(initialFactory)</span>
+<span class="fc" id="L32">      .limit(REPEATS)</span>
+<span class="fc" id="L33">      .collect(Collectors.toList());</span>
 
-<span class="fc" id="L42">        Set&lt;ListenableFuture&lt;S&gt;&gt; candidatesF = Sets.newHashSet();</span>
-
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (int i = 0; i &lt; REPEATS; i++) {</span>
-<span class="fc" id="L45">            candidatesF.add(executor.submit(doSearch()));</span>
-        }
-
-        try {
-<span class="fc" id="L49">            S result = Ordering.from(hillClimbing.getHeuristic()).max(Futures.allAsList(candidatesF).get());</span>
-<span class="fc" id="L50">            System.out.println(&quot; Done. &quot;);</span>
-<span class="fc" id="L51">            return result;</span>
-<span class="nc" id="L52">        } catch (InterruptedException e) {</span>
-<span class="nc" id="L53">            throw Throwables.propagate(e);</span>
-<span class="nc" id="L54">        } catch (ExecutionException e) {</span>
-<span class="nc" id="L55">            throw Throwables.propagate(e);</span>
-        } finally {
-<span class="pc" id="L57">            executor.shutdown();</span>
-        }
-    }
-
-    private Callable&lt;S&gt; doSearch() {
-<span class="fc" id="L62">        return new Callable&lt;S&gt;() {</span>
-            public S call() {
-<span class="fc" id="L64">                System.out.print(&quot;&gt;-&quot;);</span>
-
-                try {
-<span class="fc" id="L67">                    S result = hillClimbing.initial(initialFactory.call()).build().search();</span>
-
-<span class="fc" id="L69">                    System.out.print(&quot;-|&quot;);</span>
-
-<span class="fc" id="L71">                    return result;</span>
-<span class="nc" id="L72">                } catch (Exception e) {</span>
-<span class="nc" id="L73">                    throw Throwables.propagate(e);</span>
-                }
-            }
-        };
-    }
+<span class="fc" id="L35">    return initial</span>
+<span class="fc" id="L36">      .parallelStream()</span>
+<span class="fc" id="L37">      .map(hillClimbing::search)</span>
+<span class="fc" id="L38">      .max(hillClimbing.getHeuristic())</span>
+<span class="pc" id="L39">      .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find final result&quot;));</span>
+  }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
