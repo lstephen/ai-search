@@ -9,7 +9,7 @@
 
   <groupId>com.github.lstephen</groupId>
   <artifactId>ai-search</artifactId>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <packaging>jar</packaging>
 
   <name>ai-search</name>
