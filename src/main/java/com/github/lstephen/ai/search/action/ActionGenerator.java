@@ -7,6 +7,6 @@ import java.util.stream.Stream;
  *
  * @author lstephen
  */
-public interface ActionGenerator<S> extends Function<S, Stream<Action<S>>> {
-
+public interface ActionGenerator<S> extends Function<S, Stream<? extends Action<S>>> {
 }
+
